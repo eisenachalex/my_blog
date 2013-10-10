@@ -1,0 +1,19 @@
+<div class="container">
+    <% @posts.each do |x| %>
+    <div class="post">
+      <div id ="<%=x.id %>">
+        <h3><%= x.title %></h3>
+        <span style="font-style:italic"> <%= x.content %></span><br/><br/><br/><br/>
+
+      </div>
+                  <div id="tagbox">
+            <span style="font-style:none;color:#474747"> <%= x.created_at %></span>
+            <% x.tags.each do |x| %>
+            #<%= x.tag_name %>
+            <% end %>
+            <a id="delete" href= "/delete_post/" name="<%=x.id %>" >Delete</a>
+            <a id="edit" href= "/edit_post" name="<%= x.id %>">Edit</a>
+            </div>
+    </div>
+    <% end %>
+</div>
